@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbany <mbany@student.42warsaw.pl>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/30 18:40:53 by mbany             #+#    #+#             */
+/*   Updated: 2024/10/30 19:13:46 by mbany            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 
@@ -40,7 +52,26 @@
 
 //     }
 // }
+int init_stack(int ac, char **av, t_stack **stack_a, t_stack **stack_b)
+{
+	int *nbrs;
+	int nbr_nbrs;
+	int i;
 
+	init_nbrs_array(ac, av, &nbrs, &nbr_nbrs);
+	if (allocate_mem_for_stack(stack_a, stack_b) == -1)
+	{
+		free(nbrs);
+		ft_error();
+	}
+	i = nbr_nbrs -1;
+	while (i >= 0)
+		create_new_node_for_top(*stack_a, nbrs[i--]);
+	free(nbrs);
+	index_assigement(*stack_a);
+	return (0;)
+}
+/*nbr_nbrs how many numbers in array
 
 int main(int ac, char **av) 
 {
@@ -48,6 +79,14 @@ int main(int ac, char **av)
     t_stack *stack_b;
     int len;
 
+	if (init_stack(ac, av, &stack_a, &stack_b) == -1)
+		return -1;
+	if (check_sorte_in_stack(stack_a))
+	{
+		free_stack(stack_a);
+		free_stack(stack_b);
+		return 0;
+	}
     len = stack_a->size;
     if(stack_a->size == 3)
         sort_3_stack(stack_a);
