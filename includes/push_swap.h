@@ -6,7 +6,7 @@
 /*   By: mbany <mbany@student.42warsaw.pl>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 19:00:07 by michalkcb         #+#    #+#             */
-/*   Updated: 2024/10/30 19:48:23 by mbany            ###   ########.fr       */
+/*   Updated: 2024/10/31 19:58:51 by mbany            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,16 @@ void	rrb(t_stack *stack_b);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
 
 //push_swap_utils
+int		ft_word_count(char const *s, char c);
+void	init_nbrs_array(int ac, char **av, int **nbrs, int *nbr_nbrs);
 void	ft_error(void);
-int		check_duplicates(int *nbr, int len);
-int		create_new_node_for_top(t_stack *stack, int value);
-void	index_assigmenent(t_stack *stack);
-int		check_sorted_in_stack(t_stack *stack);
+int		alloc_mem_4_stacks(t_stack **stack_a, t_stack **stack_b);
+int		create_new_node_4_top(t_stack *stack, int value);
 
 //push_swap_utils2
-int		ft_word_count2(char const *str, char c);
+int		check_duplicates(int *nbr, int len);
+void	index_assigmenent(t_stack *stack);
+int		check_sorted_in_stack(t_stack *stack);
 long	ft_atol(char *str);
 void	free_split(char **split);
 int		ft_check_int_range(long num);
@@ -63,13 +65,11 @@ void	check_number_in_str(char **parts_str, int *nbrs, int i);
 
 //push_swap_utils3
 void	split_atol_free(char *str, int *nbrs);
-int		allocate_memory_for_stacks(t_stack **stack_a, t_stack **stack_b);
 void	free_stack(t_stack *stack);
 int		ft_check_forbidden_char(char *str);
 int		fill_nbrs_array(int argc, char **argv, int *nbrs);
 
 //push_swap_utils4
-void	initialize_nbrs_array(int argc, char **argv, int **nbrs, int *nbr_nbrs);
 
 //sort_for_3
 void	sort_3_nbr(t_stack **stack, int a, int b, int c);
