@@ -6,7 +6,7 @@
 /*   By: mbany <mbany@student.42warsaw.pl>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 17:33:39 by mbany             #+#    #+#             */
-/*   Updated: 2024/11/02 18:50:38 by mbany            ###   ########.fr       */
+/*   Updated: 2024/11/02 19:04:57 by mbany            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ra(t_stack *stack_a)
 	last->next = first;
 	write(1,"ra\n",3);
 }
-void	ra(t_stack *stack_b)
+void	rb(t_stack *stack_b)
 {
 	t_node *first;
 	t_node *last;
