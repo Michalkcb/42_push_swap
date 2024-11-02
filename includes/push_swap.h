@@ -6,7 +6,7 @@
 /*   By: mbany <mbany@student.42warsaw.pl>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 19:00:07 by michalkcb         #+#    #+#             */
-/*   Updated: 2024/11/02 16:21:13 by mbany            ###   ########.fr       */
+/*   Updated: 2024/11/02 19:54:23 by mbany            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,11 @@ int		fill_nbrs_array(int argc, char **argv, int *nbrs);
 int		check_duplicates(int *nbr, int len);
 
 //push_swap_utils2
-int		alloc_mem_4_stacks(t_stack **stack_a, t_stack **stack_b);
+int		alloc_mem_4_stack(t_stack **stack_a, t_stack **stack_b);
 int		create_new_node_4_top(t_stack *stack, int value);
 void	index_assigmenent(t_stack *stack);
 int		check_sorted_in_stack(t_stack *stack);
 void	free_stack(t_stack *stack);
-
 
 //push_swap_utils3
 int		ft_check_forbidden_char(char *s);
@@ -77,17 +76,17 @@ void	sort_3_nbr(t_stack **stack, int a, int b, int c);
 void	sort_3_nbr_on_stack(t_stack **stack);
 void	sort_3_stack(t_stack *stack);
 
-//sort_for_4_to_9
+//sort_4_to_9
 int		find_index_for_min_value(t_stack *stack);
 void	push_min_value_to_b(t_stack *stack_a, t_stack *stack_b);
-void	sort_for_4_to_9(t_stack *stack_a, t_stack *stack_b);
+void	sort_4_to_9(t_stack *stack_a, t_stack *stack_b);
 
 //sort_for_more
+void	sort1(t_stack *stack_a, t_stack *stack_b, int size_a);
 int		calcule_group_size_with_sqrt(int size);
-void	chunk_sort1(t_stack *stack_a, t_stack *stack_b, int size_a);
+void	sort2(t_stack *stack_a, t_stack *stack_b, int size_b);
 int		count_r(t_node *stack, int nbr);
 void	r_stack_b(t_stack *stack_b, int size_b, int rb_count, int rrb_count);
-void	chunk_sort2(t_stack *stack_a, t_stack *stack_b, int size_b);
 
 //push_swap
 int		init_stack(int argc, char **argv, t_stack **stack_a, t_stack **stack_b);

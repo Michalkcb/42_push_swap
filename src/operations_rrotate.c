@@ -6,7 +6,7 @@
 /*   By: mbany <mbany@student.42warsaw.pl>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 17:33:47 by mbany             #+#    #+#             */
-/*   Updated: 2024/11/02 19:05:02 by mbany            ###   ########.fr       */
+/*   Updated: 2024/11/02 19:30:42 by mbany            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	rrb(t_stack *stack_b)
 	current = stack_b->top;
 	if (stack_b->top == NULL || stack_b->top->next == NULL)
 		return ;
-		while (current->next != NULL)
+	while (current->next != NULL)
 		{
 			prev = current;
 			current = current->next;

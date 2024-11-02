@@ -6,7 +6,7 @@
 /*   By: mbany <mbany@student.42warsaw.pl>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 17:32:41 by mbany             #+#    #+#             */
-/*   Updated: 2024/11/02 13:46:33 by mbany            ###   ########.fr       */
+/*   Updated: 2024/11/02 19:37:46 by mbany            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_nbrs_array(int ac, char **av, int **nbrs, int *nbr_nbrs)
 		*nbr_nbrs = ac - 1;
 	if (ac == 1)
 		exit (1);
-	*nbr_nbrs = (int *)malloc(sizeof(int) * (*nbr_nbrs));
+	*nbrs = (int *)malloc(sizeof(int) * (*nbr_nbrs));
 	if(!(*nbrs))
 		ft_error();
 	if (fill_nbrs_array(ac, av, *nbrs) == -1)

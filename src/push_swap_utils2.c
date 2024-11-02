@@ -6,13 +6,13 @@
 /*   By: mbany <mbany@student.42warsaw.pl>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 17:33:02 by mbany             #+#    #+#             */
-/*   Updated: 2024/11/02 15:09:36 by mbany            ###   ########.fr       */
+/*   Updated: 2024/11/02 19:51:32 by mbany            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int		alloc_mem_4_stacks(t_stack **stack_a, t_stack **stack_b)
+int		alloc_mem_4_stack(t_stack **stack_a, t_stack **stack_b)
 {
 	*stack_a =(t_stack *)malloc(sizeof(t_stack));
 	*stack_b =(t_stack *)malloc(sizeof(t_stack));

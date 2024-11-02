@@ -6,44 +6,73 @@
 #    By: mbany <mbany@student.42warsaw.pl>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/30 18:47:11 by mbany             #+#    #+#              #
-#    Updated: 2024/10/30 18:47:16 by mbany            ###   ########.fr        #
+#    Updated: 2024/11/02 20:13:07 by mbany            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Name of the final executable
 NAME = push_swap
 
-# Source files
-SOURCES = sources/operations_rotate.c sources/operations_rrotate.c sources/operations_swap_push.c \
-sources/push_swap.c sources/push_swap_utils.c sources/push_swap_utils2.c sources/push_swap_utils3.c \
-sources/push_swap_utils4.c sources/sort_for_3.c sources/sort_for_4_to_9.c sources/sort_for_more.c
-
-# Object files
-OBJECTS = $(SOURCES:.c=.o)
-
 # Compiler and flags
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -Iincludes -g
+FLAGS = -Wall -Werror -Wextra -Iincludes -g
 
 # Paths
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
+# Source files
+SRC_DIR = src/
+SRC = operations_rotate.c operations_rrotate.c operations_push_swap.c \
+	push_swap.c push_swap_utils.c push_swap_utils2.c push_swap_utils3.c \
+	push_swap_utils4.c sort_for_3.c sort_4_to_9.c sort_4_more.c
+SRCS = $(addprefix $(SRC_DIR), $(SRC))
+
+# Object files
+OBJ_DIR = objs/
+OBJ = $(SRC:.c=.o)
+OBJS = $(addprefix $(OBJ_DIR), $(OBJ))
+
+# Colors & symbols
+GREEN 	= 	\033[0;32m
+CYAN	=	\033[0;36m
+NC		= 	\033[0m
+TICK	=	✅
+
+define PRINT_LOADING
+	@printf "$(CYAN)["
+	@for i in $$(seq 0 10 100); do \
+		printf "▓"; \
+		sleep 0.1; \
+	done
+	@printf "] 100%%$(RESET)\n"
+endef
+
 # Target for all
-all: $(NAME)
+all: $(LIBFT) $(OBJS) $(NAME)
+
+# Rule for the final executable
+$(NAME): $(OBJS)
+	@echo "$(CYAN)Compiling libs & program...$(NC)"
+	@$(CC) $(FLAGS) $(OBJS) -o $(NAME) $(LIBFT) -lXext -lX11 -lm
+	@$(PRINT_LOADING)
+	@echo "$(GREEN)Program compilation successful		$(TICK)$(NC)"
+
+# Ensure the object directory exists
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+
+# Build the library
+$(LIBFT):
+	@make -sC $(LIBFT_DIR)
 
 # Rule to build object files
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-# Target for the final executable
-$(NAME): $(OBJECTS)
-	@make -C $(LIBFT_DIR)
-	$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) -o $(NAME)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 # Clean object files
 clean:
-	@rm -f $(OBJECTS)
+	@rm -f $(OBJS)
 	@make -C $(LIBFT_DIR) clean
 	
 # Full clean, including the executable and libft
