@@ -6,7 +6,7 @@
 /*   By: mbany <mbany@student.42warsaw.pl>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 17:33:47 by mbany             #+#    #+#             */
-/*   Updated: 2024/11/02 19:03:03 by mbany            ###   ########.fr       */
+/*   Updated: 2024/11/02 19:05:02 by mbany            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	rra(t_stack *stack_a)
 	}
 	write(1, "rra\n",4);
 }
-void	rra(t_stack *stack_b)
+void	rrb(t_stack *stack_b)
 {
 	t_node *prev;
 	t_node *current;
