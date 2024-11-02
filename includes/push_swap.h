@@ -6,7 +6,7 @@
 /*   By: mbany <mbany@student.42warsaw.pl>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 19:00:07 by michalkcb         #+#    #+#             */
-/*   Updated: 2024/10/31 19:58:51 by mbany            ###   ########.fr       */
+/*   Updated: 2024/11/02 16:21:13 by mbany            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ typedef struct  s_node
     int value;
     int index;
     struct s_node *next;
-    
 } t_node;
 
 typedef struct s_stack
@@ -48,33 +47,35 @@ void	rrb(t_stack *stack_b);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
 
 //push_swap_utils
-int		ft_word_count(char const *s, char c);
 void	init_nbrs_array(int ac, char **av, int **nbrs, int *nbr_nbrs);
+int		ft_word_count(char const *s, char c);
 void	ft_error(void);
-int		alloc_mem_4_stacks(t_stack **stack_a, t_stack **stack_b);
-int		create_new_node_4_top(t_stack *stack, int value);
+int		fill_nbrs_array(int argc, char **argv, int *nbrs);
+int		check_duplicates(int *nbr, int len);
 
 //push_swap_utils2
-int		check_duplicates(int *nbr, int len);
+int		alloc_mem_4_stacks(t_stack **stack_a, t_stack **stack_b);
+int		create_new_node_4_top(t_stack *stack, int value);
 void	index_assigmenent(t_stack *stack);
 int		check_sorted_in_stack(t_stack *stack);
-long	ft_atol(char *str);
-void	free_split(char **split);
-int		ft_check_int_range(long num);
-void	check_number_in_str(char **parts_str, int *nbrs, int i);
+void	free_stack(t_stack *stack);
+
 
 //push_swap_utils3
-void	split_atol_free(char *str, int *nbrs);
-void	free_stack(t_stack *stack);
-int		ft_check_forbidden_char(char *str);
-int		fill_nbrs_array(int argc, char **argv, int *nbrs);
+int		ft_check_forbidden_char(char *s);
+long	ft_atol(char *s);
+int		ft_check_int_range(long num);
+void	split_atol_free(char *s, int *nbrs);
+void	check_number_in_s(char **parts_str, int *nbrs, int i);
+
 
 //push_swap_utils4
+void	free_split(char **split);
 
 //sort_for_3
 void	sort_3_nbr(t_stack **stack, int a, int b, int c);
 void	sort_3_nbr_on_stack(t_stack **stack);
-void	sort_small_stack(t_stack *stack);
+void	sort_3_stack(t_stack *stack);
 
 //sort_for_4_to_9
 int		find_index_for_min_value(t_stack *stack);

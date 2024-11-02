@@ -6,7 +6,13 @@
 /*   By: mbany <mbany@student.42warsaw.pl>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 17:34:33 by mbany             #+#    #+#             */
-/*   Updated: 2024/10/31 17:34:34 by mbany            ###   ########.fr       */
+/*   Updated: 2024/11/02 16:33:56 by mbany            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/push_swap.h"
+
+void	sort_for_4_to_9(t_stack *stack_a, t_stack *stack_b)
+{
+	
+}

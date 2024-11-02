@@ -6,7 +6,7 @@
 /*   By: mbany <mbany@student.42warsaw.pl>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 18:40:53 by mbany             #+#    #+#             */
-/*   Updated: 2024/10/31 18:20:28 by mbany            ###   ########.fr       */
+/*   Updated: 2024/11/02 16:21:03 by mbany            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int init_stack(int ac, char **av, t_stack **stack_a, t_stack **stack_b)
 
 	// Sprawdzenie, czy udało się przydzielić pamięć na dwa stosy
 	// Jeśli nie, zwalnia pamięć tablicy liczb `nbrs` i wywołuje funkcję `ft_error()`, która wyświetla komunikat o błędzie
-	if (allocate_mem_for_stack(stack_a, stack_b) == -1)
+	if (allocate_mem_4_stack(stack_a, stack_b) == -1)
 	{
 		free(nbrs);     // Zwalnianie pamięci tablicy liczb, jeśli wystąpił błąd przydzielania stosów
 		ft_error();     // Funkcja wyświetlająca komunikat błędu i przerywająca działanie programu
@@ -100,14 +100,14 @@ int init_stack(int ac, char **av, t_stack **stack_a, t_stack **stack_b)
 	int i;
 
 	init_nbrs_array(ac, av, &nbrs, &nbr_nbrs);
-	if (allocate_mem_for_stack(stack_a, stack_b) == -1)
+	if (allocate_mem_4_stack(stack_a, stack_b) == -1)
 	{
 		free(nbrs);
 		ft_error();
 	}
 	i = nbr_nbrs -1;
 	while (i >= 0)
-		create_new_node_for_top(*stack_a, nbrs[i--]);
+		create_new_node_4_top(*stack_a, nbrs[i--]);
 	free(nbrs);
 	index_assigement(*stack_a);
 	return (0);
