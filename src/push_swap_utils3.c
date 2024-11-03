@@ -6,14 +6,15 @@
 /*   By: mbany <mbany@student.42warsaw.pl>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 17:33:13 by mbany             #+#    #+#             */
-/*   Updated: 2024/11/02 16:09:03 by mbany            ###   ########.fr       */
+/*   Updated: 2024/11/03 14:30:57 by mbany            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-int		ft_check_forbidden_char(char *s)
+
+int	ft_check_forbidden_char(char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (s[i] == '-' || s[i] == '+')
@@ -24,38 +25,45 @@ int		ft_check_forbidden_char(char *s)
 			return (EXIT_FAILURE);
 		i++;
 	}
-	return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
 
 long	ft_atol(char *s)
 {
-	long num;
-	int i;
-	int sign;
+	long	num;
+	int		i;
+	int		sign;
 
 	i = 0;
-	sign = 1;
 	num = 0;
+	sign = 1;
 	while ((s[i] >= 9 && s[i] <= 13) || s[i] == ' ')
 		i++;
 	if (s[i] == '+' || s[i] == '-')
 	{
-		if(s[i] == '-')
+		if (s[i] == '-')
 			sign = -1;
 		i++;
 	}
-	return (sign * num);
+	while (s[i] >= '0' && s[i] <= '9')
+	{
+		num = num * 10 + s[i] - '0';
+		i++;
+	}
+	return (num * sign);
 }
-int		ft_check_int_range(long num)
+
+int	ft_check_int_range(long num)
 {
-	if(num < INT_MIN || num > INT_MAX)
+	if (num < INT_MIN || num > INT_MAX)
 		return (EXIT_FAILURE);
-	return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
+
 void	split_atol_free(char *s, int *nbrs)
 {
-	char **parts_s;
-	int i;
+	char	**parts_s;
+	int		i;
 
 	parts_s = ft_split(s, ' ');
 	if (!parts_s)
@@ -68,11 +76,12 @@ void	split_atol_free(char *s, int *nbrs)
 	}
 	free_split(parts_s);
 }
+
 void	check_number_in_s(char **parts_s, int *nbrs, int i)
 {
-	long nbr;
+	long	nbr;
 
-	nbr = ft_atol(parts_s[1]);
+	nbr = ft_atol(parts_s[i]);
 	if (ft_check_int_range(nbr) == EXIT_FAILURE)
 	{
 		free_split(parts_s);

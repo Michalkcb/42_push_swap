@@ -6,7 +6,7 @@
 /*   By: mbany <mbany@student.42warsaw.pl>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 19:00:07 by michalkcb         #+#    #+#             */
-/*   Updated: 2024/11/02 19:54:23 by mbany            ###   ########.fr       */
+/*   Updated: 2024/11/03 14:23:46 by mbany            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@
 # include <limits.h>
 # include <stdio.h>
 
-typedef struct  s_node
+typedef struct s_node
 {
-    int value;
-    int index;
-    struct s_node *next;
-} t_node;
+	int				value;
+	int				index;
+	struct s_node	*next;
+}	t_node;
 
 typedef struct s_stack
 {
-    t_node *top;
-    int size;
-} t_stack;
+	t_node	*top;
+	int		size;
+}	t_stack;
 
 //operations_swap_push
 void	sa(t_stack *stack_a);
@@ -66,7 +66,6 @@ long	ft_atol(char *s);
 int		ft_check_int_range(long num);
 void	split_atol_free(char *s, int *nbrs);
 void	check_number_in_s(char **parts_str, int *nbrs, int i);
-
 
 //push_swap_utils4
 void	free_split(char **split);

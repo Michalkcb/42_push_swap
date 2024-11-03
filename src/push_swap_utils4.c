@@ -6,7 +6,7 @@
 /*   By: mbany <mbany@student.42warsaw.pl>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 17:33:23 by mbany             #+#    #+#             */
-/*   Updated: 2024/11/02 16:13:15 by mbany            ###   ########.fr       */
+/*   Updated: 2024/11/03 11:42:34 by mbany            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_split(char **split)
 {
-	int j;
+	int	j;
 
 	j = 0;
 	while (split[j])

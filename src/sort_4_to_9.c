@@ -6,7 +6,7 @@
 /*   By: mbany <mbany@student.42warsaw.pl>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 17:34:33 by mbany             #+#    #+#             */
-/*   Updated: 2024/11/02 19:50:05 by mbany            ###   ########.fr       */
+/*   Updated: 2024/11/03 14:26:46 by mbany            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	find_index_for_min_value(t_stack *stack)
 {
-	int min_index;
-	int min_value;
-	int current_index;
-	t_node *current;
+	int		min_index;
+	int		min_value;
+	int		current_index;
+	t_node	*current;
 
 	min_index = 0;
 	current_index = 0;
@@ -35,6 +35,7 @@ int	find_index_for_min_value(t_stack *stack)
 	}
 	return (min_index);
 }
+
 void	sort_4_to_9(t_stack *stack_a, t_stack *stack_b)
 {
 	while (stack_a->size > 3)
@@ -43,10 +44,11 @@ void	sort_4_to_9(t_stack *stack_a, t_stack *stack_b)
 	while (stack_b->size > 0)
 		pa(stack_a, stack_b);
 }
+
 void	push_min_value_to_b(t_stack *stack_a, t_stack *stack_b)
 {
-	int min_index;
-	int rotations;
+	int	min_index;
+	int	rotations;
 
 	min_index = find_index_for_min_value(stack_a);
 	if (min_index < stack_a-> size / 2)
@@ -63,4 +65,3 @@ void	push_min_value_to_b(t_stack *stack_a, t_stack *stack_b)
 	}
 	pb(stack_a, stack_b);
 }
-

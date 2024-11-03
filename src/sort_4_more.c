@@ -6,7 +6,7 @@
 /*   By: mbany <mbany@student.42warsaw.pl>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 17:34:41 by mbany             #+#    #+#             */
-/*   Updated: 2024/11/02 19:47:13 by mbany            ###   ########.fr       */
+/*   Updated: 2024/11/03 14:35:34 by mbany            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	sort1(t_stack *stack_a, t_stack *stack_b, int size_a)
 {
-	int i;
-	int range;
+	int	i;
+	int	range;
 
 	i = 0;
 	range = calcule_group_size_with_sqrt(size_a) * 14 / 10;
@@ -35,33 +35,34 @@ void	sort1(t_stack *stack_a, t_stack *stack_b, int size_a)
 		else
 			ra(stack_a);
 	}
-	
 }
+
 int	calcule_group_size_with_sqrt(int size)
 {
-	int i;
+	int	i;
 
 	if (size < 4)
 		return (1);
 	i = 2;
 	while (i * i < size)
 		i++;
-	if(i * i > size)
+	if (i * i > size)
 	{
-		if ((i*i-size) < ((i-1)*(i-1) + (-size)))
+		if ((i * i - size) < ((i - 1) * (i - 1) + (-size)))
 			return (i);
 	}
 	return (i - 1);
 }
+
 void	sort2(t_stack *stack_a, t_stack *stack_b, int size_b)
 {
-	int rb_count;
-	int rrb_count;
+	int	rb_count;
+	int	rrb_count;
 
 	while (size_b > 0)
 	{
 		if (stack_b->top == NULL)
-			break;
+			break ;
 		rb_count = count_r(stack_b->top, size_b -1);
 		rrb_count = size_b - rb_count;
 		r_stack_b(stack_b, size_b, rb_count, rrb_count);
@@ -72,24 +73,26 @@ void	sort2(t_stack *stack_a, t_stack *stack_b, int size_b)
 		}
 	}
 }
+
 int	count_r(t_node *stack, int nbr)
 {
-	int counter;
+	int	counter;
 
 	counter = 0;
-	while (stack && stack->index !=nbr)
+	while (stack && stack->index != nbr)
 	{
 		stack = stack->next;
 		counter++;
 	}
 	return (counter);
 }
+
 void	r_stack_b(t_stack *stack_b, int size_b, int rb_count, int rrb_count)
 {
 	if (rb_count <= rrb_count)
 	{
 		while (stack_b->top && stack_b->top->index != size_b -1)
-			rb(stack_b);	
+			rb(stack_b);
 	}
 	else
 	{

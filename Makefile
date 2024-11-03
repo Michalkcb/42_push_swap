@@ -6,7 +6,7 @@
 #    By: mbany <mbany@student.42warsaw.pl>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/30 18:47:11 by mbany             #+#    #+#              #
-#    Updated: 2024/11/02 20:13:07 by mbany            ###   ########.fr        #
+#    Updated: 2024/11/03 14:09:43 by mbany            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,8 +77,12 @@ clean:
 	
 # Full clean, including the executable and libft
 fclean: clean
+	@echo "$(CYAN)Cleaning up all files...$(NC)"
+	@$(PRINT_LOADING)
 	@rm -f $(NAME)
+	@rm -rf $(OBJ_DIR)
 	@make -C $(LIBFT_DIR) fclean
+	@echo "$(GREEN)Full clean completed $(TICK)$(NC)"
 
 # Rebuild everything
 re: fclean all
